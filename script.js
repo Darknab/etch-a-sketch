@@ -1,19 +1,20 @@
-let gridSize = 16;
+
 const container = document.querySelector(".container")
-//const square = document.createElement("div");
-//square.classList.add = "square";
+
 const squares = [];
-squares.length = gridSize*gridSize;
-container.style.cssText = `grid-template-columns: repeat(${gridSize}, 1fr);`
+
+function createGrid(gridSize) {
+    squares.length = gridSize*gridSize;
+    container.style.cssText = `grid-template-columns: repeat(${gridSize}, 1fr);`
 
 for (let i = 0; i < squares.length; i++) {
     squares[i] = document.createElement("div");
     squares[i].classList.add("square")
     container.appendChild(squares[i]);
     squares[i].addEventListener("mouseover", () => {
-        randomColor();
         squares[i].style.backgroundColor = randomColor();
     })
+}
 }
 
 function randomColor() {
@@ -21,5 +22,19 @@ function randomColor() {
     const green = Math.floor(Math.random() * 256 );
     const blue = Math.floor(Math.random() * 256 );
     return (`rgb(${red}, ${green}, ${blue})`);
+}
+createGrid(16);
 
+const button = document.querySelector("button");
+button.addEventListener("click", () => {
+    removeGrid();
+    let userChoice = prompt("choose a new size", "");
+    userSize = parseInt(userChoice);
+    createGrid(userSize)
+})
+
+function removeGrid() {
+    for (let i = 0; i < squares.length; i++) {
+        squares[i].remove();
+    }
 }
