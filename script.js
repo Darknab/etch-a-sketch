@@ -10,4 +10,16 @@ for (let i = 0; i < squares.length; i++) {
     squares[i] = document.createElement("div");
     squares[i].classList.add("square")
     container.appendChild(squares[i]);
+    squares[i].addEventListener("mouseover", () => {
+        randomColor();
+        squares[i].style.backgroundColor = randomColor();
+    })
+}
+
+function randomColor() {
+    const red = Math.floor(Math.random() * 256 );
+    const green = Math.floor(Math.random() * 256 );
+    const blue = Math.floor(Math.random() * 256 );
+    return (`rgb(${red}, ${green}, ${blue})`);
+
 }
