@@ -13,7 +13,9 @@ for (let i = 0; i < squares.length; i++) {
     container.appendChild(squares[i]);
     squares[i].addEventListener("mouseover", () => {
         squares[i].style.backgroundColor = randomColor();
-    })
+        squares[i].style.transition = "0.1s" 
+    }) 
+    
 }
 }
 
