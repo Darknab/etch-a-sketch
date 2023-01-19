@@ -1,5 +1,6 @@
 body {
     text-align: center;
+    background-color: rgb(97, 159, 53);
 }
 
 button {
@@ -10,13 +11,19 @@ button {
 .container {
     height : 900px;
     width : 900px;
-    border: 1px solid black;
+    border: 2px solid black;
     margin: 20px auto 20px auto;
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.5rem;
 }
 
 .square {
     border: 1px solid rgba(44, 157, 9, 0.463);
-    background-color: pink;
-    width: 100px;
-    z-index: 3;
+    background-color: white;
+}
+
+.square:hover {
+    background-color: grey;
+    transition: all 0.5s ease-in-out;
 }
