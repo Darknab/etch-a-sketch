@@ -14,8 +14,7 @@ for (let i = 0; i < squares.length; i++) {
     squares[i].addEventListener("mouseover", () => {
         squares[i].style.backgroundColor = randomColor();
         squares[i].style.transition = "0.1s" 
-    }) 
-    
+    })   
 }
 }
 
@@ -30,9 +29,23 @@ createGrid(16);
 const button = document.querySelector("button");
 button.addEventListener("click", () => {
     removeGrid();
-    let userChoice = prompt("choose a new size", "");
-    userSize = parseInt(userChoice);
-    createGrid(userSize)
+    let userChoice;
+    let validSelection = false
+    do {
+        userChoice = prompt("choose a new size", "");
+        userChoice = parseInt(userChoice);
+        if (userChoice > 0 && userChoice < 100) {
+            validSelection = true;
+        }
+        else if (userChoice <= 0) {
+            alert("please enter a valid number");
+        }
+        else if (userChoice > 100)  {
+            alert("not that much!");
+        }   
+    }
+    while (validSelection == false);;
+    createGrid(userChoice);
 })
 
 function removeGrid() {
